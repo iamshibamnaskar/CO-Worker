@@ -1,0 +1,29 @@
+{
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "name": "Co-Worker",
+    "description": "This is a Chrome extension built with React which can help solving problems and better understand things",
+    "permissions": ["contextMenus", "activeTab", "storage", "scripting"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "js/index.html",
+        "default_title": "Co-Worker",
+        "default_icon": {
+            "16": "icons/co-worker-16.png",
+            "32": "icons/co-worker-32.png",
+            "48": "icons/co-worker-48.png",
+            "128": "icons/co-worker-128.png"
+        }
+    },
+    "icons": {
+        "16": "icons/co-worker-16.png",
+        "32": "icons/co-worker-32.png",
+        "48": "icons/co-worker-48.png",
+        "128": "icons/co-worker-128.png"
+    },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; style-src 'self' 'unsafe-inline'"
+    }
+}
