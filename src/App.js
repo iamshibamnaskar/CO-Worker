@@ -70,12 +70,18 @@ function App() {
   return (
     <div className="container flex flex-col w-[500px] h-[600px] bg-white shadow-xl rounded-lg">
       <div className="flex flex-col flex-grow h-0 p-4 overflow-auto">
-        {messages.length==0?(
+        {messages.length == 0 ? (
           <div>CO-WORKER</div>
-        ):(
+        ) : (
           messages.map((msg, index) => (
             <div key={index} className={`flex w-full mt-2 space-x-3 max-w-xs ${msg.role === "user" ? "ml-auto justify-end" : ""}`}>
-              {msg.role !== "user" && <div className="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>}
+              {msg.role !== "user" && (
+                <img
+                  src="https://raw.githubusercontent.com/iamshibamnaskar/CO-Worker/refs/heads/main/dist/icons/co-worker-32.png"
+                  alt="Bot Avatar"
+                  className="h-7 w-7 rounded-full object-cover"
+                />
+              )}
               <div>
                 <div
                   className={`p-3 rounded-lg ${msg.role === "user" ? "bg-blue-600 text-white" : "bg-gray-300"}`}
@@ -113,16 +119,16 @@ function App() {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && sendMessage(input, true)}
         />
-        {loading?(
+        {loading ? (
           <span class="loader"></span>
-        ):(
+        ) : (
           <button
-          className="ml-2 px-4 py-2 bg-blue-600 text-white rounded"
-          onClick={() => sendMessage(input, true)}
-          disabled={loading}
-        >
-          Send
-        </button>
+            className="ml-2 px-4 py-2 bg-blue-600 text-white rounded"
+            onClick={() => sendMessage(input, true)}
+            disabled={loading}
+          >
+            Send
+          </button>
         )}
       </div>
     </div>
